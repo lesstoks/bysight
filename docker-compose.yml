@@ -1,0 +1,15 @@
+services:
+  bysight_db:
+    container_name: bysight_db
+    image: 'postgres:17'
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_DB=${BYS_DB_NAME}
+      - POSTGRES_PASSWORD=${BYS_DB_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  pgdata:
