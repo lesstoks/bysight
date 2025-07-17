@@ -73,6 +73,20 @@
           "command": "npx mikro-orm migration:create --blank"
         }
       },
+      "migration:up": {
+        "executor": "nx:run-commands",
+        "options": {
+          "cwd": "apps/api",
+          "command": "npx mikro-orm migration:up"
+        }
+      },
+      "migration:down": {
+        "executor": "nx:run-commands",
+        "options": {
+          "cwd": "apps/api",
+          "command": "npx mikro-orm migration:down"
+        }
+      },
 
       "docker-build": {
         "dependsOn": [

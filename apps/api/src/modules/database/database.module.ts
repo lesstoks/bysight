@@ -3,6 +3,7 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { PostgreSqlDriver } from '@mikro-orm/postgresql';
 import { User } from '../users/entities/users.entity';
+import { Migrator, TSMigrationGenerator } from '@mikro-orm/migrations';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -27,7 +28,17 @@ const entities = [
         // entities
         entities,
 
+        // migrations
+        migrations: {
+          path: '../../../../../database/migrations',
+          glob: '!(*.d).{js,ts}',
+          allOrNothing: true,
+          transactional: true,
+          generator: TSMigrationGenerator,
+        },
+
         // mikro-orm specific
+        extensions: [Migrator],
         debug: !isProduction,
         timezone: 'UTC',
       }),
