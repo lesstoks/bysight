@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import config from './app/config';
-import { DatabaseModule } from './modules/database/database.module';
+import { UsersModule } from './modules/users/users.module';
+import { MikroOrmModule } from '@mikro-orm/nestjs';
+import mikroOrmConfig from '../mikro-orm.config';
 
 @Module({
   imports: [
@@ -9,7 +11,8 @@ import { DatabaseModule } from './modules/database/database.module';
       isGlobal: true,
       load: [config],
     }),
-    DatabaseModule,
+    MikroOrmModule.forRoot(mikroOrmConfig),
+    UsersModule,
   ],
   controllers: [],
   providers: [],
