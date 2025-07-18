@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "@bysight/api",
   "version": "0.0.1",
   "private": true,
   "nx": {
@@ -28,15 +28,15 @@
           "build"
         ],
         "options": {
-          "buildTarget": "api:build",
+          "buildTarget": "@bysight/api:build",
           "runBuildTargetDependencies": false
         },
         "configurations": {
           "development": {
-            "buildTarget": "api:build:development"
+            "buildTarget": "@bysight/api:build:development"
           },
           "production": {
-            "buildTarget": "api:build:production"
+            "buildTarget": "@bysight/api:build:production"
           }
         }
       },
@@ -44,54 +44,6 @@
         "options": {
           "passWithNoTests": true
         }
-      },
-
-      "db:build": {
-        "executor": "nx:run-commands",
-        "options": {
-          "command": "docker compose build bysight_db"
-        }
-      },
-      "db:up": {
-        "executor": "nx:run-commands",
-        "options": {
-          "command": "docker compose up -d bysight_db"
-        },
-        "dependsOn": ["db:build"]
-      },
-      "db:down": {
-        "executor": "nx:run-commands",
-        "options": {
-          "command": "docker-compose down bysight_db"
-        }
-      },
-
-      "migration:create": {
-        "executor": "nx:run-commands",
-        "options": {
-          "command": "npx mikro-orm migration:create --blank --config=apps/api/mikro-orm.config.ts"
-        }
-      },
-      "migration:up": {
-        "executor": "nx:run-commands",
-        "options": {
-          "cwd": "apps/api",
-          "command": "npx mikro-orm migration:up"
-        }
-      },
-      "migration:down": {
-        "executor": "nx:run-commands",
-        "options": {
-          "cwd": "apps/api",
-          "command": "npx mikro-orm migration:down"
-        }
-      },
-
-      "docker-build": {
-        "dependsOn": [
-          "build"
-        ],
-        "command": "docker build -f apps/api/Dockerfile . -t bysight-api"
       }
     }
   }

@@ -4,7 +4,7 @@
   "private": true,
   "nx": {
     "implicitDependencies": [
-      "api"
+      "@bysight/api"
     ],
     "targets": {
       "e2e": {
@@ -17,8 +17,8 @@
           "passWithNoTests": true
         },
         "dependsOn": [
-          "api:build",
-          "api:serve"
+          "@bysight/api:build",
+          "@bysight/api:serve"
         ]
       }
     }
