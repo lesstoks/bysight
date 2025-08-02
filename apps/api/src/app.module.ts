@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import configuration from './config/configuration';
+import { OperationsModule } from './modules/operations/operations.module';
 
 const isNotProduction = process.env.NODE_ENV !== 'production';
 
@@ -25,7 +26,9 @@ const isNotProduction = process.env.NODE_ENV !== 'production';
         autoLoadEntities: true,
         synchronize: isNotProduction,
       }),
-    })
+    }),
+
+    OperationsModule,
   ],
   controllers: [],
   providers: [],
