@@ -12,12 +12,14 @@ export class OperationsRepository implements IOperationsRepository {
     private readonly operationsRepo: Repository<OperationEntity>
   ) {}
 
-  async create(operation: Operation): Promise<OperationEntity> {
+  async create(operation: Operation): Promise<Operation> {
     const newOperation = new OperationEntity(operation);
-    return await this.operationsRepo.save(newOperation);
+    const saved = await this.operationsRepo.save(newOperation);
+
+    return saved.toDomain();
   }
 
-  async findById(id: string): Promise<OperationEntity | null> {
+  async findById(id: string): Promise<Operation | null> {
     return await this.operationsRepo.findOneBy({ id });
   }
 }

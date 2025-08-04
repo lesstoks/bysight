@@ -19,8 +19,6 @@ export class CreateOperationUsecase {
       createOperationCommand.operationsCode
     );
 
-    const savedRecord = await this.repo.create(operation);
-
-    return savedRecord.toDomain();
+    return await this.repo.create(operation);
   }
 }
