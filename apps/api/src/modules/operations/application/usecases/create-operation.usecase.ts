@@ -4,6 +4,7 @@ import { CreateOperationCommand } from '../commands/create-operation.command';
 import { Operation } from '../../domain/operation';
 
 import type { IOperationsRepository } from '../../domain/operation.repository';
+import { OperationFactory } from '../../domain/factory/operation.factory';
 
 @Injectable()
 export class CreateOperationUsecase {
@@ -13,10 +14,10 @@ export class CreateOperationUsecase {
   ) {}
 
   async execute(createOperationCommand: CreateOperationCommand): Promise<Operation> {
-    const operation = new Operation(
+    const operation = OperationFactory.create(
       createOperationCommand.name,
-      createOperationCommand.operationsCode,
-    )
+      createOperationCommand.operationsCode
+    );
 
     const savedRecord = await this.repo.create(operation);
 

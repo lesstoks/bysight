@@ -34,10 +34,4 @@ export class OperationEntity extends BaseEntity<OperationEntity> {
       this.operationsCode
     )
   }
-
-  fromDomain(operation: Operation): void {
-    this.id = operation.id;
-    this.name = operation.name;
-    this.operationsCode = operation.operationsCode;
-  }
 }
