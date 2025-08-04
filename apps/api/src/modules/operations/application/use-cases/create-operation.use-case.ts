@@ -7,7 +7,7 @@ import type { IOperationsRepository } from '../../domain/operation.repository';
 import { OperationFactory } from '../../domain/factory/operation.factory';
 
 @Injectable()
-export class CreateOperationUsecase {
+export class CreateOperationUseCase {
   constructor(
     @Inject(OPERATIONS_REPOSITORY)
     private readonly repo: IOperationsRepository,
