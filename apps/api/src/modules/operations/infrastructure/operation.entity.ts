@@ -7,13 +7,15 @@ export class OperationEntity extends BaseEntity<OperationEntity> {
   @Column({
     type: 'varchar',
     length: 100,
+    unique: true,
   })
   name!: string;
 
   @Column({
     type: 'varchar',
     length: 10,
-    name: 'operations_code'
+    name: 'operations_code',
+    unique: true,
   })
   operationsCode!: string;
 
