@@ -13,13 +13,19 @@ export class OperationsRepository implements IOperationsRepository {
   ) {}
 
   async create(operation: Operation): Promise<Operation> {
-    const newOperation = new OperationEntity(operation);
+    const newOperation = new OperationEntity();
+    newOperation.fromDomain(operation);
+
+    console.log(newOperation)
+
     const saved = await this.operationsRepo.save(newOperation);
 
     return saved.toDomain();
   }
 
   async findById(id: string): Promise<Operation | null> {
-    return await this.operationsRepo.findOneBy({ id });
+    const operation =  await this.operationsRepo.findOneBy({ id });
+
+    return operation ? operation.toDomain() : null;
   }
 }

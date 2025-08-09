@@ -20,6 +20,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
+    "@faker-js/faker": "^9.9.0",
+    "@jorgebodega/typeorm-factory": "^2.1.0",
     "@nestjs/schematics": "^11.0.0",
     "@nestjs/testing": "^11.0.0",
     "@nx/eslint": "21.3.11",
@@ -43,6 +45,7 @@
     "eslint-config-prettier": "^10.0.0",
     "jest": "30.0.5",
     "jest-environment-node": "^29.7.0",
+    "jest-util": "30.0.5",
     "jsonc-eslint-parser": "^2.1.0",
     "nx": "21.3.11",
     "prettier": "^2.6.2",
@@ -54,8 +57,7 @@
     "tslib": "^2.3.0",
     "typescript": "~5.8.2",
     "typescript-eslint": "^8.29.0",
-    "webpack-cli": "^5.1.4",
-    "jest-util": "30.0.5"
+    "webpack-cli": "^5.1.4"
   },
   "workspaces": [
     "apps/*",

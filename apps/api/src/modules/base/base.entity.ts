@@ -1,10 +1,6 @@
 import { PrimaryGeneratedColumn } from 'typeorm';
 
-export class BaseEntity<T> {
+export class BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
-
-  constructor(entity: Partial<T>) {
-    Object.assign(this, entity);
-  }
 }

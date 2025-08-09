@@ -2,8 +2,8 @@ import { Column, CreateDateColumn, Entity, UpdateDateColumn } from 'typeorm';
 import { BaseEntity } from '../../base/base.entity';
 import { Operation } from '../domain/operation';
 
-@Entity()
-export class OperationEntity extends BaseEntity<OperationEntity> {
+@Entity({ name: 'operations' })
+export class OperationEntity extends BaseEntity {
   @Column({
     type: 'varchar',
     length: 100,
@@ -28,12 +28,17 @@ export class OperationEntity extends BaseEntity<OperationEntity> {
   @UpdateDateColumn()
   updatedAt?: Date;
 
-
   toDomain(): Operation {
     return new Operation(
       this.id,
       this.name,
       this.operationsCode
     )
+  }
+
+  fromDomain(operation: Operation): void {
+    this.id = operation.id;
+    this.name = operation.name;
+    this.operationsCode = operation.operationsCode;
   }
 }
