@@ -4,7 +4,7 @@ import { OperationEntity } from '../modules/operations/infrastructure/operation.
 
 import { DataSource } from 'typeorm';
 
-export class OperationTestFactory extends Factory<OperationEntity> {
+export class OperationFactory extends Factory<OperationEntity> {
   protected entity = OperationEntity;
   protected dataSource: DataSource;
 

@@ -3,7 +3,7 @@ import { Test } from '@nestjs/testing';
 import { OPERATIONS_REPOSITORY } from '../../constants';
 import { CreateOperationRequestDto } from '../dto/create-operation-request.dto';
 import { Operation } from '../../domain/operation';
-import { OperationTestFactory } from '../../../../test-factories/operation.test-factory';
+import { OperationFactory } from '../../../../factories/operation.factory';
 
 describe('create-operation use case', () => {
   let usecase: CreateOperationUseCase;
@@ -37,7 +37,7 @@ describe('create-operation use case', () => {
     }
 
     // mocks
-    const fakeOperation = await new OperationTestFactory().make(dto);
+    const fakeOperation = await new OperationFactory().make(dto);
     mockRepo.create.mockResolvedValue(fakeOperation.toDomain());
 
     const result = await usecase.execute(dto);
