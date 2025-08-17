@@ -1,4 +1,4 @@
-import { IOperationsRepository } from '../domain/operation.repository';
+import { IOperationRepository } from '../domain/operation.repository';
 import { OperationEntity } from './operation.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -6,7 +6,7 @@ import { Injectable } from '@nestjs/common';
 import { Operation } from '../domain/operation';
 
 @Injectable()
-export class OperationsRepository implements IOperationsRepository {
+export class OperationRepository implements IOperationRepository {
   constructor(
     @InjectRepository(OperationEntity)
     private readonly operationsRepo: Repository<OperationEntity>
@@ -15,8 +15,6 @@ export class OperationsRepository implements IOperationsRepository {
   async create(operation: Operation): Promise<Operation> {
     const newOperation = new OperationEntity();
     newOperation.fromDomain(operation);
-
-    console.log(newOperation)
 
     const saved = await this.operationsRepo.save(newOperation);
 
