@@ -3,7 +3,7 @@ import { OPERATIONS_REPOSITORY } from '../../constants';
 import { Operation } from '../../domain/operation';
 
 import type { IOperationsRepository } from '../../domain/operation.repository';
-import { CreateOperationRequestDto } from '../dto/create-operation-request.dto';
+import { CreateOperationRequestDto } from '../../presenter/dto/create-operation-request.dto';
 
 @Injectable()
 export class CreateOperationUseCase {

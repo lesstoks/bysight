@@ -1,7 +1,7 @@
 import { CreateOperationUseCase } from './create-operation.use-case';
 import { Test } from '@nestjs/testing';
 import { OPERATIONS_REPOSITORY } from '../../constants';
-import { CreateOperationRequestDto } from '../dto/create-operation-request.dto';
+import { CreateOperationRequestDto } from '../../presenter/dto/create-operation-request.dto';
 import { Operation } from '../../domain/operation';
 import { OperationFactory } from '../../../../factories/operation.factory';
 

@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { OperationsController } from './presenter/operations.controller';
-import { CreateOperationUseCase } from './application/use-cases/create-operation.use-case';
-import { OperationsRepository } from './infrastructure/operations.repository';
-import { OPERATIONS_REPOSITORY } from './constants';
+import { OperationsController } from '../presenter/operations.controller';
+import { CreateOperationUseCase } from './use-cases/create-operation.use-case';
+import { OperationsRepository } from '../infrastructure/operations.repository';
+import { OPERATIONS_REPOSITORY } from '../constants';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { OperationEntity } from './infrastructure/operation.entity';
+import { OperationEntity } from '../infrastructure/operation.entity';
 
 @Module({
   imports: [

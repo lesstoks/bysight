@@ -1,5 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { CreateOperationRequestDto } from '../application/dto/create-operation-request.dto';
+import { CreateOperationRequestDto } from './dto/create-operation-request.dto';
 import { CreateOperationUseCase } from '../application/use-cases/create-operation.use-case';
 
 @Controller('operations')
